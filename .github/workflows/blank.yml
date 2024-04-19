@@ -24,6 +24,7 @@ jobs:
     steps:
     - name: getting wgconf
       uses: actions/checkout@v3
+      run: ls
     - name: wireguard connect
       run: |
         sudo apt install wireguard resolvconf
