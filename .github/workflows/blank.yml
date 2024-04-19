@@ -22,13 +22,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: getting wgconf
+      uses: actions/checkout@v3
+    - name: wireguard connect
+      run: |
+        sudo apt install wireguard resolvconf
+        wg-quick up wg0-client
+      
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - name: ssh connect
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.KEY }}
+        password: ${{ secrets.PASSWORD }}
         
     
       # Runs a single command using the runners shell
