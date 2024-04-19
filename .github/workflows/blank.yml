@@ -49,9 +49,7 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        run: |
-          cd rep
-          git pull origin main
+        run: cd rep && git pull origin main
     
       # Runs a single command using the runners shell
 
